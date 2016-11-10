@@ -17,20 +17,12 @@
             "role": "Developer"
         }
     ],
-    "repositories":
-    [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Bizly/laravel-messenger.git"
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
         "illuminate/config": "~5.0",
         "illuminate/support": "~5.0",
         "illuminate/database": "~5.0",
-        "nesbot/carbon": "~1.0",
-        "cmgmyr/messenger": "dev-custom"
+        "nesbot/carbon": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
@@ -48,6 +40,5 @@
         "psr-4": {
             "Cmgmyr\\Messenger\\Test\\": "tests/"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
