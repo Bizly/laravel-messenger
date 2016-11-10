@@ -26,6 +26,13 @@ class Models
     private static $userModelLookupKey = 'User';
 
     /**
+     * Internal pointer name for the app's "Property" model.
+     *
+     * @var string
+     */
+    private static $propertyModelLookupKey = 'Property';
+
+    /**
      * Set the model to be used for threads.
      *
      * @param string $model
@@ -154,6 +161,17 @@ class Models
     }
 
     /**
+     * Get an instance of the Property model.
+     *
+     * @param  array $attributes
+     * @return \App\Models\Property
+     */
+    public static function property(array $attributes = [])
+    {
+        return static::make(self::$userModelLookupKey,, $attributes);
+    }
+
+    /**
      * Get an instance of the user model.
      *
      * @param  array  $attributes
@@ -161,7 +179,7 @@ class Models
      */
     public static function user(array $attributes = [])
     {
-        return static::make(self::$userModelLookupKey, $attributes);
+        return static::make(self::$propertyModelLookupKey, $attributes);
     }
 
     /**
