@@ -24,7 +24,7 @@ class CreateThreadsTable extends Migration
             $table->integer('created_by')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->unique('channel');
+            $table->unique('broadcast_channel');
             $table->foreign('property_id')->references('id')->on('properties');
         });
     }
