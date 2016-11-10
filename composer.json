@@ -9,12 +9,6 @@
             "email": "cmgmyr@gmail.com",
             "homepage": "https://github.com/cmgmyr",
             "role": "Developer"
-        },
-        {
-            "name": "Bizly Tech",
-            "email": "sai@bizly.com",
-            "homepage": "https://github.com/bizly",
-            "role": "Developer"
         }
     ],
     "require": {
@@ -40,5 +34,6 @@
         "psr-4": {
             "Cmgmyr\\Messenger\\Test\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
