@@ -51,6 +51,16 @@ class Participant extends Eloquent
     }
 
     /**
+     * Property relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function property()
+    {
+        return $this->belongsTo(Models::classname(Property::class), 'property_id', 'id');
+    }
+
+    /**
      * User relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

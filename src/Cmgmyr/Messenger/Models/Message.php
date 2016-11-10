@@ -67,6 +67,16 @@ class Message extends Eloquent
     }
 
     /**
+     * Property relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function property()
+    {
+        return $this->belongsTo(Models::classname(Property::class), 'property_id', 'id');
+    }
+
+    /**
      * Participants relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

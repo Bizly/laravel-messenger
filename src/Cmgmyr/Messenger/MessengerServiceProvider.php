@@ -47,11 +47,13 @@ class MessengerServiceProvider extends ServiceProvider
     {
         $config = $this->app->make('config');
 
+        Models::setPropertyModel($config->get('messenger.property_model', Message::class));
         Models::setMessageModel($config->get('messenger.message_model', Message::class));
         Models::setThreadModel($config->get('messenger.thread_model', Thread::class));
         Models::setParticipantModel($config->get('messenger.participant_model', Participant::class));
 
         Models::setTables([
+            'properties' => $config->get('messenger.properties_table', Models::property()->getTable()),
             'messages' => $config->get('messenger.messages_table', Models::message()->getTable()),
             'participants' => $config->get('messenger.participants_table', Models::participant()->getTable()),
             'threads' => $config->get('messenger.threads_table', Models::thread()->getTable()),

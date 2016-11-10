@@ -58,6 +58,17 @@ class Models
     }
 
     /**
+     * Set the model to be used for properties.
+     *
+     * @param  string $model
+     * @return void
+     */
+    public static function setPropertyModel($model)
+    {
+        static::$models[Property::class] = $model;
+    }
+
+    /**
      * Set the model to be used for users.
      *
      * @param  string  $model
