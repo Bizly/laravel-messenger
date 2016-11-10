@@ -14,12 +14,17 @@ class CreateParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create(Models::table('participants'), function (Blueprint $table) {
+        Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('property_id')->unsigned();
             $table->timestamp('last_read')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('thread_id')->references('id')->on('threads');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('property_id')->references('id')->on('properties');
         });
     }
 

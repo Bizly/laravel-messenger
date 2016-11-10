@@ -14,12 +14,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create(Models::table('messages'), function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('property_id')->unsigned();
             $table->text('body');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('thread_id')->references('id')->on('threads');
+            $table->foreign('property_id')->references('id')->on('properties');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
         });
     }
 
