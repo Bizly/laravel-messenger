@@ -63,7 +63,7 @@ class MessengerServiceProvider extends ServiceProvider
     {
         $config = $this->app->make('config');
 
-        $model = $config->get('messenger.message_model', $config->get('messenger.property_model'));
+        $model = $config->get('messenger.property_model', $config->get('messenger.property_model'));
         Models::setPropertyModel($model);
 
         Models::setTables([
