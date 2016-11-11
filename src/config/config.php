@@ -15,8 +15,6 @@ return [
     /**
      * Define custom database table names.
      */
-    'properties_table' => null,
-
     'messages_table' => null,
 
     'participants_table' => null,

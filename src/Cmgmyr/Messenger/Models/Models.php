@@ -72,7 +72,7 @@ class Models
      */
     public static function setPropertyModel($model)
     {
-        static::$models[Property::class] = $model;
+        static::$models[self::$propertyModelLookupKey] = $model;
     }
 
     /**
@@ -168,7 +168,7 @@ class Models
      */
     public static function property(array $attributes = [])
     {
-        return static::make(self::$userModelLookupKey,, $attributes);
+        return static::make(self::$propertyModelLookupKey, $attributes);
     }
 
     /**
@@ -179,7 +179,7 @@ class Models
      */
     public static function user(array $attributes = [])
     {
-        return static::make(self::$propertyModelLookupKey, $attributes);
+        return static::make(self::$userModelLookupKey, $attributes);
     }
 
     /**

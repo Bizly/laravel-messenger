@@ -57,7 +57,7 @@ class Participant extends Eloquent
      */
     public function property()
     {
-        return $this->belongsTo(Models::classname(Property::class), 'property_id', 'id');
+        return $this->belongsTo(Models::property(), 'property_id');
     }
 
     /**
