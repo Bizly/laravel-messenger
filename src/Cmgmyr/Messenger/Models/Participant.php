@@ -21,14 +21,14 @@ class Participant extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['thread_id', 'user_id', 'last_read'];
+    protected $fillable = ['thread_id', 'user_id', 'property_id', 'last_read'];
 
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at', 'property_id', 'last_read'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at', 'last_read'];
 
     /**
      * {@inheritDoc}
