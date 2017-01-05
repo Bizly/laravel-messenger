@@ -23,6 +23,7 @@ class Thread extends Eloquent
      *
      * @var array
      */
+
     protected $fillable = ['subject', 'created_by'];
 
     /**
