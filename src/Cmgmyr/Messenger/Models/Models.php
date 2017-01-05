@@ -26,13 +26,6 @@ class Models
     private static $userModelLookupKey = 'User';
 
     /**
-     * Internal pointer name for the app's "Property" model.
-     *
-     * @var string
-     */
-    private static $propertyModelLookupKey = 'Property';
-
-    /**
      * Set the model to be used for threads.
      *
      * @param string $model
@@ -65,14 +58,14 @@ class Models
     }
 
     /**
-     * Set the model to be used for properties.
+     * Set the model to be used for thread objects.
      *
      * @param  string $model
      * @return void
      */
-    public static function setPropertyModel($model)
+    public static function setThreadObjectModel($model)
     {
-        static::$models[self::$propertyModelLookupKey] = $model;
+        static::$models[ThreadObject::class] = $model;
     }
 
     /**
@@ -161,14 +154,14 @@ class Models
     }
 
     /**
-     * Get an instance of the Property model.
+     * Get an instance of the thread objects model.
      *
      * @param  array $attributes
-     * @return \App\Models\Property
+     * @return \Cmgmyr\Messenger\Models\ThreadObject
      */
-    public static function property(array $attributes = [])
+    public static function threadObject(array $attributes = [])
     {
-        return static::make(self::$propertyModelLookupKey, $attributes);
+        return static::make(ThreadObject::class, $attributes);
     }
 
     /**

@@ -17,15 +17,9 @@ class CreateThreadsTable extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
-            $table->string('broadcast_channel');
-            $table->integer('property_id')->unsigned();
-            $table->integer('order_id')->unsigned()->nullable();
-            $table->integer('search_criteria_id')->unsigned();
             $table->integer('created_by')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->unique('broadcast_channel');
-            $table->foreign('property_id')->references('id')->on('properties');
         });
     }
 

@@ -25,7 +25,7 @@ class Message extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['thread_id', 'user_id', 'body', 'property_id'];
+    protected $fillable = ['thread_id', 'user_id', 'body'];
 
     /**
      * Validation rules.
@@ -42,7 +42,6 @@ class Message extends Eloquent
     public function __construct(array $attributes = [])
     {
         $this->table = Models::table('messages');
-
         parent::__construct($attributes);
     }
 
@@ -64,16 +63,6 @@ class Message extends Eloquent
     public function user()
     {
         return $this->belongsTo(Models::user(), 'user_id');
-    }
-
-    /**
-     * Property relationship.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function property()
-    {
-        return $this->belongsTo(Models::property(), 'property_id');
     }
 
     /**

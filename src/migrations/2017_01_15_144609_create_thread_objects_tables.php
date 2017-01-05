@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateParticipantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,14 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('thread_objects', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->text('body');
+            $table->string('object_type');
+            $table->timestamp('object_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('thread_id')->references('id')->on('threads');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
         });
     }
 
@@ -33,6 +32,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop(Models::table('messages'));
+        Schema::drop(Models::table('thread_objects'));
     }
 }
