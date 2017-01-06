@@ -24,7 +24,7 @@ class Thread extends Eloquent
      * @var array
      */
 
-    protected $fillable = ['subject', 'created_by'];
+    protected $fillable = ['subject', 'parent_id', 'created_by'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -74,9 +74,39 @@ class Thread extends Eloquent
     }
 
     /**
-     * Returns the user object that created the thread.
+     * Parent Thread relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent()
+    {
+        return $this->belongsTo(Models::classname(Thread::class), 'parent_id');
+    }
+
+    /**
+     * Children Thread relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function children()
+    {
+        return $this->hasMany(Models::classname(Thread::class), 'parent_id');
+    }
+
+    /**
+     * Returns the object that's polymorphed.
      *
      * @return mixed
+     */
+    public function objects($object_type_class, $object_id_string)
+    {
+        return $this->morphToMany($object_type_class, 'object', 'thread_objects', 'object_id', $object_id_string);
+    }
+
+    /**
+     * Returns the user object that created the thread.
+     *
+     * @return threads
      */
     public function creator()
     {
