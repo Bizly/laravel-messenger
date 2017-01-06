@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipantsTable extends Migration
+class CreateThreadObjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateParticipantsTable extends Migration
             $table->increments('id');
             $table->integer('thread_id')->unsigned();
             $table->string('object_type');
-            $table->timestamp('object_id')->unsigned();
+            $table->integer('object_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('thread_id')->references('id')->on('threads');
