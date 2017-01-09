@@ -21,6 +21,7 @@ class CreateThreadsTable extends Migration
             $table->integer('created_by')->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            $table->index('parent_id', 'parent_id_thread_index');
         });
     }
 

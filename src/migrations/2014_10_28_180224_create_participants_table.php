@@ -21,6 +21,7 @@ class CreateParticipantsTable extends Migration
             $table->timestamp('last_read')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->index('last_read', 'participant_last_read_index');
             $table->foreign('thread_id')->references('id')->on('threads');
             $table->foreign('user_id')->references('id')->on('users');
         });
