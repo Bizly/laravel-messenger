@@ -74,6 +74,16 @@ class Thread extends Eloquent
     }
 
     /**
+     * ThreadObjects relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function threadObjects()
+    {
+        return $this->hasMany(Models::classname(ThreadObject::class), 'thread_id', 'id');
+    }
+
+    /**
      * Parent Thread relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -91,16 +101,6 @@ class Thread extends Eloquent
     public function children()
     {
         return $this->hasMany(Models::classname(Thread::class), 'parent_id');
-    }
-
-    /**
-     * Returns the object that's polymorphed.
-     *
-     * @return mixed
-     */
-    public function objects($object_type_class, $object_id_string)
-    {
-        return $this->morphToMany($object_type_class, 'object', 'thread_objects', 'object_id', $object_id_string);
     }
 
     /**

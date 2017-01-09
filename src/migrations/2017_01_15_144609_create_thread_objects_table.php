@@ -22,6 +22,8 @@ class CreateThreadObjectsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('thread_id')->references('id')->on('threads');
+            $table->index('object_type', 'object_type_thread_object_index');
+            $table->index('object_id', 'object_id_thread_object_index');
         });
     }
 
